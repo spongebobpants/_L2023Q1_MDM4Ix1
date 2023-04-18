@@ -87,6 +87,7 @@ public class Serial_Controller : MonoBehaviour
                 serialIn = serialIn.Trim();
                 if(serialIn.ToLower() == "5")
                 {
+                    print("got 5");
                     Media_Controller.GetComponent<Media_Controller>().PlayMedia();
                 }
 
