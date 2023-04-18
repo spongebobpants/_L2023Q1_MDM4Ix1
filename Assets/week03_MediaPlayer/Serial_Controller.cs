@@ -69,11 +69,12 @@ public class Serial_Controller : MonoBehaviour
         // arduino 포트 개방
         ///
         arduino.Open();
+        arduino.ReadTimeout = 2000;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (arduino.IsOpen)
         {
             //serialIn = arduino.ReadLine();
@@ -83,6 +84,7 @@ public class Serial_Controller : MonoBehaviour
             {
                 serialIn = arduino.ReadLine();
                 print(serialIn);
+                serialIn = serialIn.Trim();
                 if(serialIn.ToLower() == "5")
                 {
                     Media_Controller.GetComponent<Media_Controller>().PlayMedia();
